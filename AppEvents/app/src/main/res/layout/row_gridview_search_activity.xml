@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:card_view="http://schemas.android.com/apk/res-auto"
+android:id="@+id/card_view"
+android:layout_width="270dp"
+android:layout_height="wrap_content"
+android:layout_margin="5dp"
+card_view:cardElevation="3dp">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        card_view:cardElevation="10dp">
+        <LinearLayout
+            android:layout_width="0dip"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="2"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1">
+                <ImageView
+                    android:id="@+id/row_gridview_search_image_cover"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/cover_photo_test"
+                    android:scaleType="center"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_margin="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:paddingTop="5dp"
+                    android:id="@+id/row_gridview_search_title_event"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/bb_darkBackgroundColor"
+                    android:textStyle="bold"
+                    android:textSize="18dp"
+                    android:text="Crashing Hotels Album Release Party"
+                    android:inputType="textMultiLine"
+                    />
+                <TextView
+                    android:paddingTop="5dp"
+                    android:id="@+id/row_gridview_search_lb_location_event"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="To day 7 PM - White Glove"
+                    />
+
+                <RelativeLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/row_gridview_search_image_catelogy"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/music"/>
+
+                    <TextView
+                        android:id="@+id/row_gridview_search_lb_catelogy"
+                        android:paddingLeft="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_toEndOf="@+id/row_gridview_search_image_catelogy"
+                        android:text="Music - 784 Interested"/>
+                    <ImageView
+                        android:paddingRight="5dp"
+                        android:id="@+id/row_gridview_search_image_state"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/star"
+                        android:layout_alignParentRight="true"/>
+
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v7.widget.CardView>

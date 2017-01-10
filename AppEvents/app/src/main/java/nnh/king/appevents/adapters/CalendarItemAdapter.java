@@ -13,22 +13,22 @@ import java.util.TreeSet;
 import nnh.king.appevents.R;
 
 /**
- * Created by huy on 1/6/2017.
+ * Created by huy on 1/9/2017.
  */
 
-public class HomeItemAdapter extends BaseAdapter {
+public class CalendarItemAdapter extends BaseAdapter {
 
-    private static final int ITEM_WEATHER = 0;
-    private static final int ITEM_HOME = 1;
-    private static final int ITEM_EVENTS = 2;
+    private static final int TYPE_ITEM = 0;
+    private static final int TYPE_SEPARATOR = 1;
 
     private ArrayList<String> mData = new ArrayList<String>();
     private TreeSet<Integer> sectionHeader = new TreeSet<Integer>();
 
     private LayoutInflater mInflater;
 
-    public HomeItemAdapter(Context context) {
-        mInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
+    public CalendarItemAdapter(Context context) {
+        mInflater = (LayoutInflater) context
+                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     public void addItem(final String item) {
@@ -43,40 +43,28 @@ public class HomeItemAdapter extends BaseAdapter {
     }
 
     @Override
+    public int getItemViewType(int position) {
+        return sectionHeader.contains(position) ? TYPE_SEPARATOR : TYPE_ITEM;
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return 2;
+    }
+
+    @Override
     public int getCount() {
         return mData.size();
     }
 
     @Override
-    public int getItemViewType(int position) {
-//        return sectionHeader.contains(position) ? TYPE_SEPARATOR : TYPE_ITEM;
-
-        switch (position) {
-            case 0:
-                return ITEM_WEATHER;
-            case 1:
-                return ITEM_HOME;
-            case 2:
-                return ITEM_EVENTS;
-            default:
-                return ITEM_EVENTS;
-        }
-    }
-
-    @Override
-    public int getViewTypeCount() {
-        return 3;
-    }
-
-    @Override
-    public Object getItem(int position) {
+    public String getItem(int position) {
         return mData.get(position);
     }
 
     @Override
     public long getItemId(int position) {
         return position;
-
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -86,23 +74,20 @@ public class HomeItemAdapter extends BaseAdapter {
         if (convertView == null) {
             holder = new ViewHolder();
             switch (rowType) {
-                case ITEM_WEATHER:
-                    convertView = mInflater.inflate(R.layout.row_weather_home, null);
-//                    holder.textView = (TextView) convertView.findViewById(R.id.);
-                    break;
-                case ITEM_HOME:
+                case TYPE_ITEM:
                     convertView = mInflater.inflate(R.layout.row_item_home, null);
-//                    holder.textView = (TextView) convertView.findViewById(R.id.textSeparator);
+//                    holder.textView = (TextView) convertView.findViewById(R.id.text);
                     break;
-                case ITEM_EVENTS:
-                    convertView = mInflater.inflate(R.layout.row_events_item_home, null);
+                case TYPE_SEPARATOR:
+                    convertView = mInflater.inflate(R.layout.header_row_item, null);
+                    holder.textView = (TextView) convertView.findViewById(R.id.textSeparator);
                     break;
-
             }
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
+//        holder.textView.setText(mData.get(position));
 
         return convertView;
     }

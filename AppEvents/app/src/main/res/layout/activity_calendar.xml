@@ -26,13 +26,16 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:text="Calender"/>
+            android:textStyle="bold"
+            android:textSize="20dp"
+            android:text="Calendar"/>
     </RelativeLayout>
 
     <CalendarView
-        android:id="@+id/activity_calendar_item"
+        android:id="@+id/activity_calendar_view"
         android:layout_width="match_parent"
-        android:layout_height="300dp"></CalendarView>
+        android:layout_height="300dp"
+        ></CalendarView>
 
     <ListView
         android:id="@+id/activity_calendar_list_view"
